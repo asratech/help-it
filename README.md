@@ -3,85 +3,66 @@ Merupakan aplikasi web berbasis codeigniter untuk keperluan manajemen pekerjaan 
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+Masih versi awal, digunakan agar antar team/karyawan, bisa saling mengetahui pekerjaan bar apa yang diinginkan oleh departemen lain (atau bisa departemen sendiri). Kemudian melihat juga pekerjaan yang sementara dikerjakan (atau on progress). Cukup membantulah, dibanding harus menulis-nulis di whiteboard. 
+
+![Screenshot](_build/preview.png)
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
+Cuma butuh komputer :D
 
 ```
-Give examples
+Apache/Ngix Server
+PHP
+MySQL
 ```
 
 ### Installing
 
-A step by step series of examples that tell you have to get a development env running
+Edit file database.php, sesuaikan dengan kondisi komputer/server Anda.
 
-Say what the step will be
-
-```
-Give the example
-```
-
-And repeat
 
 ```
-until finished
+'hostname' => 'localhost',
+'username' => 'root',
+'password' => 'root',
+'database' => 'help-it',
 ```
 
-End with an example of getting some data out of the system or using it for a little demo
-
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
+Buat database help-it, kemudian import database 
 
 ```
-Give an example
+help-it.sql
 ```
 
-### And coding style tests
+## Fitur
 
-Explain what these tests test and why
+* Menggunakan template AdminLTE
+*	Tampilan yang bersih
+*	Responsive
 
-```
-Give an example
-```
+  
+## Dibuat Menggunakan
 
-## Deployment
+* [CodeIgniter](https://codeigniter.com/) - Framework v3.1.7
+* [AdminLTE](https://adminlte.io/) - Control Panel Template
 
-Add additional notes about how to deploy this on a live system
-
-## Built With
-
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
-
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
 
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+* **Mardino Santosa** - [zdienos](https://github.com/zdienos)
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+Tanpa lisensi, bebas gunakan, modifikasi, bahkan versioning di github saya.
 
-## Acknowledgments
+## ChangeLog
 
-* Hat tip to anyone who's code was used
-* Inspiration
-* etc
+### v1.1.9 - Feb 19, 2018
+* Permintaan Pekerjaan (work order)</li>
+* Identifikasi Pekerjaan (dengan persentase progress)</li>
+* Menu Departemen</li>
+* Menu Profil untuk mengganti foto dan update profil (nama dan password)</li>
+
 
