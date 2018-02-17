@@ -14,7 +14,15 @@
         <!-- small box -->
         <div class="small-box bg-red">
           <div class="inner">
-            <h3><?php echo $total_waiting; ?> </h3>
+            <h3>
+              <?php
+                if ($total_waiting) {
+                    echo $total_waiting;
+                } else {
+                    echo "0";
+                }
+              ?>
+            </h3>
             <p>Waiting</p>
           </div>
           <div class="icon">
@@ -29,7 +37,15 @@
         <!-- small box -->
         <div class="small-box bg-yellow">
           <div class="inner">
-            <h3><?php echo $total_progress; ?></h3>
+            <h3>
+              <?php
+                if ($total_progress) {
+                    echo $total_progress;
+                } else {
+                    echo "0";
+                }
+              ?>
+            </h3>
 
             <p>On Progress </p>
           </div>
@@ -46,12 +62,19 @@
         <div class="small-box bg-green">
           <div class="inner">
             <?php
+              if ($total_pekerjaan) {
+                $total_pekerjaan = $total_pekerjaan;
+                $total_selesai = $total_finished;
+                $persentase = $total_selesai/$total_pekerjaan*100;
+                 ?>
+                <h3><?php echo round($persentase,2); ?><sup style="font-size: 20px">%</sup></h3>
+              <?php
+            } else {
+              ?>
+                  <h3>0<sup style="font-size: 20px">%</sup></h3>
+              <?php }
             //buat fungsi untuk menghitung persentase pekerjaan yang selesai dari total Pekerjaan
-            $total_pekerjaan = $total_pekerjaan;
-            $total_selesai = $total_finished;
-            $persentase = $total_selesai/$total_pekerjaan*100;
-             ?>
-            <h3><?php echo round($persentase,2); ?><sup style="font-size: 20px">%</sup></h3>
+              ?>
             <p>Finished</p>
           </div>
           <div class="icon">

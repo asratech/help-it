@@ -62,9 +62,6 @@
 
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
-          <!-- Messages: style can be found in dropdown.less-->
-          <?php if($d_permintaan){
-          ?>
           <!-- Tasks: style can be found in dropdown.less -->
           <li class="dropdown tasks-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -72,6 +69,8 @@
               <span class="label label-danger"><?php echo $total_waiting; ?></span>
             </a>
             <ul class="dropdown-menu">
+              <?php if($d_permintaan){ //ada data permintaan
+              ?>
               <li class="header">Ada <?php echo $total_waiting; ?> Permintaan Pekerjaan</li>
               <li>
                 <!-- inner menu: contains the actual data -->
@@ -99,23 +98,35 @@
               <li class="footer">
                 <a href="<?php echo base_url('permintaan') ?>">Lihat Semua </a>
               </li>
+              <?php
+              }
+              else { //data kosong
+              ?>
+              <li class="header">Tidak Ada Permintaan Pekerjaan Baru</li>
+              <li class="footer">
+                <a href="<?php echo base_url('permintaan') ?>">Lihat Semua </a>
+              </li>
+              <?php
+              }
+              ?>
             </ul>
           </li>
-
 
           <!-- Tasks: style can be found in dropdown.less -->
           <li class="dropdown tasks-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <i class="fa fa-wrench"></i>
-              <span class="label label-warning"><?php echo $total_progress; ?> </span>
+              <span class="label label-warning"><?php echo $total_progress; ?></span>
             </a>
             <ul class="dropdown-menu">
+              <?php
+              if($d_progress){
+              ?>
               <li class="header">Ada <?php echo $total_progress; ?> pekerjaan masih <i>On Progress</i></li>
               <li>
                 <!-- inner menu: contains the actual data -->
                 <ul class="menu">
                   <?php
-                  if($d_progress){
                     foreach($d_progress as $d) {
                   ?>
                   <li><!-- Task item -->
@@ -134,14 +145,24 @@
                   </li>
                   <!-- end task item -->
                   <?php
-                }
-                }
-                 ?>
+                  }
+                  ?>
                 </ul>
               </li>
               <li class="footer">
                 <a href="<?php echo base_url('identifikasi') ?>">Lihat semua</a>
               </li>
+              <?php
+              } else{
+              ?>
+              <li class="header">Tidak ada pekerjaan <i>On Progress</i></li>
+
+              <li class="footer">
+                <a href="<?php echo base_url('identifikasi') ?>">Lihat semua</a>
+              </li>
+              <?php
+              }
+              ?>
             </ul>
           </li>
 
@@ -175,7 +196,7 @@
             </ul>
           </li>
         <?php
-        }
+
         ?>
         </ul>
       </div>
