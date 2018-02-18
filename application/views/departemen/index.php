@@ -30,8 +30,7 @@
     <h1 class="pull-left">
       Departemen
     </h1>
-    <div class="pull-right">
-    <!-- a href="<?php echo base_url('departemen/tambah')?>" class="btn btn-primary pull-right" rel="tooltip" data-original-title="Tambah data departemen">Tambah departemen</a-->
+    <div class="pull-right">    
     <button class="btn btn-primary pull-right" name="button" onclick="tambah_departemen()" rel="tooltip" data-original-title="Tambah data departemen"><i class="fa fa-plus"></i> Tambah Data</button>
     </div>
   </section>

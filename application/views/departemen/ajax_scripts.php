@@ -48,9 +48,9 @@
       url: "<?php echo base_url() . 'departemen/ubah/';?>"+id,
       type: "GET",
       dataType: "JSON",
-      success: function(data){
-        $('[name="txt_id"]').val(data.id);
-        $('[name="txt_departemen"]').val(data.departemen);
+      success: function(data){      
+        $('[name="txt_id"]').val(data.id_departemen);
+        $('[name="txt_departemen"]').val(data.nama_departemen);
 
         $('#modalForm').modal('show');
         $('.modal-title').text('Ubah departemen');

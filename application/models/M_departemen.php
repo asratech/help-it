@@ -46,9 +46,9 @@ class M_departemen extends CI_Model{
   function update_departemen(){
     $id = $this->input->post('txt_id');
     $field = array(
-      'departemen' => $this->input->post('txt_departemen')
+      'nama_departemen' => $this->input->post('txt_departemen')
     );
-    $this->db->where('id', $id);
+    $this->db->where('id_departemen', $id);
     $this->db->update('tb_departemen', $field);
 
     if($this->db->affected_rows() > 0){
