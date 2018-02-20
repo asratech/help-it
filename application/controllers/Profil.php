@@ -74,7 +74,7 @@ class Profil extends CI_Controller {
         		if ( ! $this->image_lib->resize()){
         			$this->session->set_flashdata('message', $this->image_lib->display_errors('wer', 'wer'));
         		}
-        		$this->mm->updateGambar();
+        		$this->mr->updateGambar();
         		//Need to update the session information if email was changed
         		//$this->session->set_userdata('email', $this->input->xss_clean($this->input->post('user_email')));
         		//$this->session->set_flashdata('message', 'Your Profile has been Updated!');

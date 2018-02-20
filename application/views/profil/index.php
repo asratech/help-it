@@ -19,12 +19,13 @@
             <h3 class="profile-username text-center"><?php echo $this->session->userdata('nama_lengkap'); ?></h3>
             <p class="text-muted text-center"><?php echo $this->session->userdata('nama_user');?></p>
             <?php
-            echo form_open_multipart(base_url('profil/upload_gambar'));
+            echo form_open_multipart(base_url('profil/upload_gambar'), 'id="target"');
             ?>
             <label class="btn btn-sm btn-block btn-primary">
-                Pilih Foto <input type="file" style="display: none;" name="gambar">
+                Pilih Foto <input type="file" id="file" style="display: none;" name="gambar">
             </label>
-            <button type="submit" class="btn btn-sm btn-block btn-primary">Update Foto</button>
+            <!-- ndak usah pake tombol submit, karena otomatis submit mi
+            button type="submit" class="btn btn-sm btn-block btn-primary">Update Foto</button-->
             <?php
             echo form_close();
             ?>
