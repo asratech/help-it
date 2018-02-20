@@ -62,7 +62,7 @@ class Permintaan extends CI_Controller {
 		else {
 			$this->session->set_flashdata('psn_error','Gagal menyimpan data ');
 		}
-		redirect(base_url('permintaan/index'));
+		redirect(base_url('permintaan'));
 	}
 
 	function ubah($id)
@@ -92,7 +92,7 @@ class Permintaan extends CI_Controller {
     else {
       $this->session->set_flashdata('psn_error','Gagal mengubah data ');
     }
-    redirect(base_url('permintaan/index'));
+    redirect(base_url('permintaan'));
   }
 
 	function hapus($id){
@@ -103,7 +103,7 @@ class Permintaan extends CI_Controller {
     else {
       $this->session->set_flashdata('psn_error','Gagal menghapus data ');
     }
-    redirect(base_url('permintaan/index'));
+    redirect(base_url('permintaan'));
   }
 
 	function cetak($id){
@@ -114,7 +114,7 @@ class Permintaan extends CI_Controller {
     else {
       $this->session->set_flashdata('psn_error','Gagal mencetak data ');
     }
-    redirect(base_url('permintaan/index'));
+    redirect(base_url('permintaan'));
   }
 
 
@@ -138,12 +138,12 @@ class Permintaan extends CI_Controller {
 	function simpan_identifikasi(){
 		$hasil = $this->mi->simpanDataIdentifikasi();
 		if($hasil){
-			$this->session->set_flashdata('psn_sukses','Data telah diubah');
+			$this->session->set_flashdata('psn_sukses','Pekerjaan telah diidentifikasi');
 		}
 		else {
-			$this->session->set_flashdata('psn_error','Gagal mengubah data ');
+			$this->session->set_flashdata('psn_error','Gagal identifikasi pekerjaan');
 		}
-		//redirect(base_url('permintaan/index'));
+		redirect(base_url('permintaan'));
 	}
 
 

@@ -48,6 +48,13 @@ $.widget.bridge('uibutton', $.ui.button);
 <script src="<?php echo base_url();?>assets/dist/js/adminlte.min.js"></script>
 
 
+<!-- notify -->
+<script src="<?php echo base_url();?>assets/plugins/notify/notify.min.js"></script>
+
+
+  <!-- sweetAlert -->
+  <script src="<?php echo base_url();?>assets/plugins/sweetalert/sweetalert.min.js"></script>
+
 
 <script>
   function isNumber(evt) {
@@ -104,5 +111,49 @@ $.widget.bridge('uibutton', $.ui.button);
       checkboxClass: 'icheckbox_flat-green',
       radioClass   : 'iradio_flat-green'
     })
+</script>
+
+<?php
+  if($this->session->flashdata('psn_sukses')){
+    $pesan = $this->session->flashdata('psn_sukses');
+    echo '<script>';
+    echo 'swal("'. $pesan .'", {icon: "success", button:false, timer:1500});';
+    echo '</script>';
+  }
+?>
+<?php
+  if($this->session->flashdata('psn_error')){
+    $pesan = $this->session->flashdata('psn_error');
+    echo '<script>';
+    echo 'swal("'. $pesan .'", {icon: "error", button:false, timer:1500});';
+    echo '</script>';
+  }
+?>
+
+<script>
+     $('.hapus-data').on('click', function(e){
+        e.preventDefault(); //cancel default action
+
+        var href = $(this).attr('data-url');
+
+        //pop up
+        swal({
+            title: "Anda yakin ingin menghapus datass?",
+            icon: "warning",
+            buttons: ["Tidak", "Ya"],
+            dangerMode: true,
+        })
+        .then((hapus) => {
+          if (hapus) {
+            //swal("Data sudah dihapus!", {
+            //  icon: "success",
+            //});
+            window.location.href = href;
+            //setTimeout(function(){ window.location.href = href; }, 500);
+          }
+          else {
+          }
+        });
+    });
 
 </script>

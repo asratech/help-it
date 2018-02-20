@@ -59,14 +59,14 @@ class M_departemen extends CI_Model{
   }
 
   function hapus_departemen($id){
-    $this->db->where('id', $id);
-    $this->db->delete('tb_departemen');
-    if($this->db->affected_rows() > 0){
-      return true;
-    }else {
-      return false;
-    }
-  }
+		$this->db->where('id_departemen', $id);
+		$this->db->delete('tb_departemen');
+		if($this->db->affected_rows() > 0){
+			return true;
+		}else {
+			return false;
+		}
+	}
 
 
 

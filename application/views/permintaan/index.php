@@ -60,7 +60,7 @@
                          <td>
                              <a class="btn btn-info btn-xs" href="<?php echo base_url() . 'permintaan/identifikasi/' . $d->id_permintaan ?>" rel="tooltip" title="Identifikasi"><i class="fa fa-wrench"></i></a>
                              <a class="btn btn-warning btn-xs" href="<?php echo base_url() . 'permintaan/ubah/' . $d->id_permintaan ?>" rel="tooltip" title="Ubah"><i class="fa fa-pencil " ></i></a>
-                             <a class="btn btn-danger btn-xs" href="<?php echo base_url() . 'permintaan/hapus/' . $d->id_permintaan ?>" onclick="return confirm('Anda yakin?');" rel="tooltip" title="Hapus"><i class="fa fa-trash-o "></i></a>
+                             <a class="btn btn-danger btn-xs hapus-data" href="#" data-url="<?php echo base_url() . 'permintaan/hapus/' . $d->id_permintaan ?>"  rel="tooltip" title="Hapus"><i class="fa fa-trash-o "></i></a>
                              <a class="btn bg-purple btn-xs" href="<?php echo base_url() . 'permintaan/cetak/' . $d->id_permintaan ?>" rel="tooltip" title="Cetak"><i class="fa fa-print"></i></a>
                          </td>
                      </tr>

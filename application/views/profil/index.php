@@ -176,7 +176,7 @@
               <div class="form-group">
 
                 <label class="btn btn-block btn-primary">
-                    Upload Foto <input type="file" style="display: none;" name="gambar">
+                    Upload Foto <input onchange="document.getElementById('file').click();" type="file" id="file" style="display: none;" name="gambar">
                 </label>
                   <button type="submit" class="btn btn-primary">Update Foto</button>
 

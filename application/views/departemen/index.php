@@ -1,36 +1,11 @@
 <div class="content-wrapper">
 
-  <?php
-    if($this->session->flashdata('psn_sukses')){
-  ?>
-    <div class="alert alert-success" style="position:absolute; left:50%;top:55px;" role="alert">
-      <?php echo $this->session->flashdata('psn_sukses');?>
-    </div>
-    <script>
-      window.setTimeout(function() {$(".alert").fadeTo(500, 0).slideUp(500, function(){$(this).remove();});},1000);
-    </script>
-  <?php
-    }
-  ?>
-  <?php
-    if($this->session->flashdata('psn_error')){
-  ?>
-    <div class="alert alert-danger" style="position:absolute; left:50%;top:55px;" role="alert">
-      <?php echo $this->session->flashdata('psn_error');?>
-    </div>
-    <script>
-      window.setTimeout(function() {$(".alert").fadeTo(500, 0).slideUp(500, function(){$(this).remove();});},1000);
-    </script>
-  <?php
-    }
-  ?>
-
   <!-- Content Header (Page header) -->
   <section class="content-header" style="padding-bottom: 30px;">
     <h1 class="pull-left">
       Departemen
     </h1>
-    <div class="pull-right">    
+    <div class="pull-right">
     <button class="btn btn-primary pull-right" name="button" onclick="tambah_departemen()" rel="tooltip" data-original-title="Tambah data departemen"><i class="fa fa-plus"></i> Tambah Data</button>
     </div>
   </section>
@@ -63,8 +38,8 @@
                       <td><?php echo $d->nama_departemen; ?></td>
                       <td>
                         <nobr>
-                          <a onclick="ubah_departemen(<?php echo $d->id_departemen; ?>)" class="btn btn-sm btn-warning" rel="tooltip" data-tooltip="true" title="" data-original-title="Ubah"><i class="fa fa-pencil"></i></a>&nbsp;
-                          <a onclick="hapus_departemen(<?php echo $d->id_departemen; ?>)" class="btn btn-danger btn-sm delete-asset" rel="tooltip" data-tooltip="true" data-toggle="modal" data-content="Are you sure you wish to delete Laptop?" data-title="Delete" onclick="return confirm('Anda yakin?');" data-original-title="Hapus" title=""><i class="fa fa-trash"></i></a>&nbsp;
+                          <a onclick="ubah_departemen(<?php echo $d->id_departemen; ?>)" class="btn btn-xs btn-warning" rel="tooltip" data-tooltip="true" title="" data-original-title="Ubah"><i class="fa fa-pencil"></i></a>&nbsp;                          
+                          <a class="btn btn-danger btn-xs hapus-data" href="#" data-url="<?php echo base_url() . 'departemen/hapus/' . $d->id_departemen ?>"  rel="tooltip" title="Hapus"><i class="fa fa-trash-o "></i></a>
                        </nobr>
                       </td>
                     </tr>

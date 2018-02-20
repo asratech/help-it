@@ -42,10 +42,10 @@ class Identifikasi extends CI_Controller {
 	function simpan(){
 		$hasil = $this->mi->simpanDataSolusi();
 		if($hasil){
-			$this->session->set_flashdata('psn_sukses','Data telah disimpan');
+			$this->session->set_flashdata('psn_sukses','Data pekerjaan telah disimpan');
 		}
 		else {
-			$this->session->set_flashdata('psn_error','Gagal menyimpan data ');
+			$this->session->set_flashdata('psn_error','Gagal menyimpan data pekerjaan');
 		}
 		redirect(base_url('identifikasi/index'));
 	}
@@ -110,10 +110,10 @@ class Identifikasi extends CI_Controller {
 	function simpan_update(){
     $hasil = $this->mi->updateDataIdentifikasi();
     if($hasil){
-      $this->session->set_flashdata('psn_sukses','Data telah diubah');
+      $this->session->set_flashdata('psn_sukses','Identifikasi telah di-update');
     }
     else {
-      $this->session->set_flashdata('psn_error','Gagal mengubah data ');
+      $this->session->set_flashdata('psn_error','Gagal meng-update data identifikasi');
     }
     redirect(base_url('identifikasi'));
   }

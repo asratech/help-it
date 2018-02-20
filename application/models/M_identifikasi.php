@@ -71,16 +71,12 @@ class M_identifikasi extends CI_Model {
 			'oleh' => $oleh,
 			'persentase' => '25%'
 			);
-
-		print_r($data);
 		$this->db->insert('tb_identifikasi', $data);
     if($this->db->affected_rows() > 0){
 			$this->updateStatusPekerjaan($id,'On Progress');
-			echo "good";
       return true;
     }
     else {
-			echo "no good";
       return false;
     }
 	}

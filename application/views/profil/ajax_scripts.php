@@ -76,4 +76,8 @@
 
   });
 */
+
+$('#file').change(function() {
+  $('#target').submit();
+});
 </script>

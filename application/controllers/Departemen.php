@@ -64,4 +64,15 @@ class Departemen extends CI_Controller {
     }
   }
 
+  function hapus($id){
+    $hasil = $this->mdep->hapus_departemen($id);
+    if($hasil){
+    $this->session->set_flashdata('psn_sukses','Data telah dihapus');
+    }
+    else {
+      $this->session->set_flashdata('psn_error','Gagal menghapus data ');
+    }
+    redirect(base_url('departemen'));
+  }
+
 }
