@@ -21,6 +21,8 @@
   <!-- Select2 -->
   <link rel="stylesheet" href="<?php echo base_url();?>assets/bower_components/select2/dist/css/select2.min.css">
 
+  <script src="<?php echo base_url();?>assets/plugins/sweetalert/sweetalert.min.js"></script>
+
 </head>
 <body class="hold-transition login-page">
 <div class="login-box">
@@ -32,17 +34,23 @@
     <p class="login-box-msg">Silahkan login untuk memulai</p>
 
     <form action="<?php echo base_url('login/proses'); ?>" method="post">
-      <?php if (validation_errors() || $this->session->flashdata('result_login')) { ?>
-            <div class="alert alert-danger animated fadeInDown" role="alert">
-                <button type="button" class="close" data-dismiss="alert">&times;</button>
-                <strong>Peringatan!</strong><br>
-                <?php echo validation_errors(); ?>
-                <?php echo $this->session->flashdata('result_login'); ?>
-            </div>
-            <script>
-              window.setTimeout(function() {$(".alert").fadeTo(500, 0).slideUp(500, function(){$(this).remove();});},800);
-            </script>
-      <?php } ?>
+      <?php
+        if($this->session->flashdata('psn_error')){
+          $pesan = $this->session->flashdata('psn_error');
+          echo '<script>';
+          echo 'swal("'. $pesan .'", {icon: "error", button:false, timer:1500});';
+          echo '</script>';
+        }
+      ?>
+      <?php
+        if(validation_errors()){
+          $pesan = "Kolom username dan password harus diisi!";
+          echo '<script>';
+          echo 'swal("'. $pesan .'", {icon: "error", button:false, timer:1500});';
+          echo '</script>';
+        }
+      ?>
+
       <div class="form-group has-feedback">
         <input type="text" name="username" class="form-control" placeholder="Username" autofocus="true">
         <span class="fa fa-user form-control-feedback"></span>
@@ -63,7 +71,7 @@
   </div>
   <br>
   <center><strong>Copyright &copy; 2018 <a href="http://www.zdienos.com">zdienos</a>.</strong> All rights
-  reserved.</br><b>Version</b> 1.1.9</center>
+  reserved.</br><b>Version</b> 1.1.10</center>
   <!-- /.login-box-body -->
 </div>
 <!-- /.login-box -->
@@ -73,6 +81,8 @@
 
 <!-- Bootstrap 3.3.7 -->
 <script src="<?php echo base_url();?>assets/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- sweetalert -->
+<script src="<?php echo base_url();?>assets/plugins/sweetalert/sweetalert.min.js"></script>
 
 </body>
 </html>
