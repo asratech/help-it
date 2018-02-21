@@ -47,13 +47,19 @@ $.widget.bridge('uibutton', $.ui.button);
 <!-- AdminLTE App -->
 <script src="<?php echo base_url();?>assets/dist/js/adminlte.min.js"></script>
 
+<!-- fullCalendar -->
+<script src="<?php echo base_url();?>assets/bower_components/moment/moment.js"></script>
+<script src="<?php echo base_url();?>assets/bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
+
+<!-- colorpicker -->
+<script src='<?php echo base_url();?>assets/bower_components/bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min.js'></script>
 
 <!-- notify -->
 <script src="<?php echo base_url();?>assets/plugins/notify/notify.min.js"></script>
 
 
-  <!-- sweetAlert -->
-  <script src="<?php echo base_url();?>assets/plugins/sweetalert/sweetalert.min.js"></script>
+<!-- sweetAlert -->
+<script src="<?php echo base_url();?>assets/plugins/sweetalert/sweetalert.min.js"></script>
 
 
 <script>

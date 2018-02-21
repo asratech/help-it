@@ -26,6 +26,11 @@
               <span>Identifikasi Pekerjaan</span>
             </a>
         </li>
+        <li>
+            <a href="<?echo base_url() .'jadwal';?>"><i class="fa fa-calendar"></i>
+              <span>Jadwal</span>
+            </a>
+        </li>
         <li class="treeview">
           <a href="#">
             <i class="fa fa-gear"></i>
