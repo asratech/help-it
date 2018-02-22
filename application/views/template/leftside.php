@@ -28,7 +28,7 @@
         </li>
         <li>
             <a href="<?echo base_url() .'jadwal';?>"><i class="fa fa-calendar"></i>
-              <span>Jadwal</span>
+              <span>Jadwal Kerja dan Event</span>
             </a>
         </li>
         <li class="treeview">

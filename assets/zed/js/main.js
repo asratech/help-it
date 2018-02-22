@@ -1,104 +1,23 @@
-
-<footer class="main-footer hidden-print">
-  <div class="pull-right hidden-xs">
-    <b>Version</b> v1.1.9 - build 3124 (master)
-    <a target="_blank" class="btn btn-default btn-xs" href="http://zdienos.com" rel="noopener">User's Manual</a>
-    <a target="_blank" class="btn btn-default btn-xs" href="https://zdienos.com/support" rel="noopener">Report a Bug</a>
-  </div>
-  <a target="_blank" href="https://zdienos.com" rel="noopener">Help-IT</a> is a personal
-    project, made with <i class="fa fa-heart" style="color: #a94442; font-size: 10px"></i> by <a href="https://twitter.com/zdienos" rel="noopener">@zdienos</a>.
-</footer>
-</div> <!-- wrapper -->
-
-<!-- all js scripts
-khusus buat fullcalendar, karena versi ini bisa resize, kalo versi baru ndak support jquery 1.11
--->
-<script src="<?php echo base_url();?>assets/zed/js/jquery.min.js"></script>
-
-<script src='<?php echo base_url();?>assets/zed/js/moment.min.js'></script>
-<script src="<?php echo base_url();?>assets/zed/js/fullcalendar.min.js"></script>
-<script src='<?php echo base_url();?>assets/zed/js/bootstrap-colorpicker.min.js'></script>
-
-<script src="<?php echo base_url();?>assets/zed/js/bootstrapValidator.min.js"></script>
-
-<!-- all scripts -->
-
-
-<!-- script adminLTE bawaan -->
-
-
-
-<!-- jQuery UI 1.11.4 -->
-<script src="<?php echo base_url();?>assets/bower_components/jquery-ui/jquery-ui.min.js"></script>
-
-<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-<script>
-$.widget.bridge('uibutton', $.ui.button);
-</script>
-
-<!-- Bootstrap 3.3.7 -->
-<script src="<?php echo base_url();?>assets/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-
-<!-- AdminLTE App -->
-<script src="<?php echo base_url();?>assets/dist/js/adminlte.min.js"></script>
-
-<!-- sweetalert -->
-<script src="<?php echo base_url();?>assets/plugins/sweetalert/sweetalert.min.js"></script>
-
-<!-- end of scripts -->
-
-
-<!-- fullcalendar -->
-<script>
 $(function(){
-
-    <?php $lokasi= base_url(); $nama = $this->session->userdata('nama_user');?>
-    var base_url= "<?php echo $lokasi ?>"; // Here i define the base_url
-    var nama= "<?php echo $nama ?>";
 
     var currentDate; // Holds the day clicked when adding a new event
     var currentEvent; // Holds the event object when editing an event
 
-    $('#external-events .external-event').each(function() {
-
-      var vnama=$.trim($(this).text());
-      if (vnama=='Event') nama='Event';
-
-       // store data so the calendar knows to render an event upon drop
-       $(this).data('event', {
-         title: nama, // use the element's text as the event title
-         description: $.trim($(this).text()), // use the element's text as the event title
-         stick: true, // maintain when user navigates (see docs on the renderEvent method)
-         backgroundColor: $(this).data('color'),
-         borderColor: $(this).data('color'),
-         color: $(this).data('color'),
-
-       });
-
-       // make the event draggable using jQuery UI
-       $(this).draggable({
-         zIndex: 999,
-         revert: true,      // will cause the event to go back to its
-         revertDuration: 0  //  original position after the drag
-       });
-
-      });
-
     $('#color').colorpicker(); // Colopicker
 
+
+    var base_url='http://localhost/fullcalendar/'; // Here i define the base_url
 
     // Fullcalendar
     $('#calendar').fullCalendar({
         header: {
-            left: 'prev, next',
+            left: 'prev, next, today',
             center: 'title',
-             right: 'today'
+             right: 'month, basicWeek, basicDay'
         },
         // Get all events stored in database
         eventLimit: true, // allow "more" link when too many events
-        events: base_url+'jadwal/getEvents',
-        droppable: true, // this allows things to be dropped onto the calendar
-
+        events: base_url+'calendar/getEvents',
         selectable: true,
         selectHelper: true,
         editable: true, // Make the event resizable true
@@ -116,23 +35,8 @@ $(function(){
                         label: 'Add' // Buttons label
                     }
                 },
-                title: 'Tambah Item' // Modal title
+                title: 'Add Event' // Modal title
             });
-            },
-
-            eventReceive: function(event){
-
-                 start = event.start.format('YYYY-MM-DD HH:mm:ss');
-                 $.post(base_url+'jadwal/addEvent', {
-                     title: event.title,
-                     description: ' ',
-                     color: event.backgroundColor,
-                     start: start,
-
-                 }, function(result){
-                       swal('Jadwal sudah ditambah', {icon: "success", button:false, timer:1500});
-                       location.reload();
-                    });
             },
 
          eventDrop: function(event, delta, revertFunc,start,end) {
@@ -144,12 +48,13 @@ $(function(){
                 end = start;
             }
 
-               $.post(base_url+'jadwal/dragUpdateEvent',{
+               $.post(base_url+'calendar/dragUpdateEvent',{
                 id:event.id,
                 start : start,
                 end :end
             }, function(result){
-                swal('Jadwal sudah diubah', {icon: "success", button:false, timer:1500});
+                $('.alert').addClass('alert-success').text('Event updated successfuly');
+                hide_notify();
 
 
             });
@@ -166,12 +71,13 @@ $(function(){
                 end = start;
             }
 
-               $.post(base_url+'jadwal/dragUpdateEvent',{
+               $.post(base_url+'calendar/dragUpdateEvent',{
                 id:event.id,
                 start : start,
                 end :end
             }, function(result){
-                swal('Jadwal sudah diubah', {icon: "success", button:false, timer:1500});
+                $('.alert').addClass('alert-success').text('Event updated successfuly');
+                hide_notify();
 
             });
             },
@@ -207,15 +113,15 @@ $(function(){
                     delete: {
                         id: 'delete-event',
                         css: 'btn-danger',
-                        label: 'Hapus'
+                        label: 'Delete'
                     },
                     update: {
                         id: 'update-event',
                         css: 'btn-success',
-                        label: 'Ubah'
+                        label: 'Update'
                     }
                 },
-                title: 'Ubah Item "' + calEvent.title + '"',
+                title: 'Edit Event "' + calEvent.title + '"',
                 event: calEvent
             });
         }
@@ -245,7 +151,7 @@ $(function(){
         if(validator(['title', 'description'])) {
           alert ($('#start').val());
           alert ($('#end').val());
-            $.post(base_url+'jadwal/addEvent', {
+            $.post(base_url+'calendar/addEvent', {
                 title: $('#title').val(),
                 description: $('#description').val(),
                 color: $('#color').val(),
@@ -253,7 +159,10 @@ $(function(){
 
                 //end: $('#end').val()
             }, function(result){
-                  swal('Jadwal sudah ditambah', {icon: "success", button:false, timer:1500});
+                $('.alert').addClass('alert-success').text('Event added successfuly');
+                $('.modal').modal('hide');
+                $('#calendar').fullCalendar("refetchEvents");
+                hide_notify();
             });
         }
     });
@@ -262,13 +171,16 @@ $(function(){
     // Handle click on Update Button
     $('.modal').on('click', '#update-event',  function(e){
         if(validator(['title', 'description'])) {
-            $.post(base_url+'jadwal/updateEvent', {
+            $.post(base_url+'calendar/updateEvent', {
                 id: currentEvent._id,
                 title: $('#title').val(),
                 description: $('#description').val(),
                 color: $('#color').val()
             }, function(result){
-                  swal('Jadwal sudah diubah', {icon: "success", button:false, timer:1500});
+                $('.alert').addClass('alert-success').text('Event updated successfuly');
+                $('.modal').modal('hide');
+                $('#calendar').fullCalendar("refetchEvents");
+                hide_notify();
 
             });
         }
@@ -278,26 +190,13 @@ $(function(){
 
     // Handle Click on Delete Button
     $('.modal').on('click', '#delete-event',  function(e){
-      swal({
-          title: "Anda yakin ingin menghapus data?",
-          icon: "warning",
-          buttons: ["Tidak", "Ya"],
-          dangerMode: true,
-      })
-      .then((hapus) => {
-        if (hapus) {
-          $.get(base_url+'jadwal/deleteEvent?id=' + currentEvent._id,
-          function(result){
-              $('.modal').modal('hide');
-             
-              $('#calendar').fullCalendar("refetchEvents");
-                swal('Jadwal sudah dihapus', {icon: "success", button:false, timer:1500});
-          });
-        }
-      });
-
+        $.get(base_url+'calendar/deleteEvent?id=' + currentEvent._id, function(result){
+            $('.alert').addClass('alert-success').text('Event deleted successfully !');
+            $('.modal').modal('hide');
+            $('#calendar').fullCalendar("refetchEvents");
+            hide_notify();
+        });
     });
-
 
     function hide_notify()
     {
@@ -320,6 +219,3 @@ $(function(){
         return true;
     }
 });
-
-
-</script>

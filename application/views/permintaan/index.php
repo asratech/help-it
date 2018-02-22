@@ -2,7 +2,7 @@
 <!-- Content Header (Page header) -->
   <section class="content-header" style="padding-bottom: 30px;">
     <h1 class="pull-left">
-      Data Permintaan Pekerjaan
+      <i class="fa fa-tasks"></i> Permintaan Pekerjaan
     </h1>
 
 

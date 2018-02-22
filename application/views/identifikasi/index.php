@@ -2,7 +2,7 @@
 <!-- Content Header (Page header) -->
   <section class="content-header" style="padding-bottom: 30px;">
     <h1 class="pull-left">
-      Data Identifikasi Pekerjaan
+      <i class="fa fa-wrench"></i>  Identifikasi Pekerjaan
     </h1>
 
 

@@ -3,7 +3,7 @@
 <!-- Content Header (Page header) -->
   <section class="content-header">
     <h1>
-      Dashboard
+      <i class="fa fa-dashboard"></i> Dashboard
     </h1>
   </section>
 

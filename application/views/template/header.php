@@ -13,9 +13,10 @@
   <link rel="stylesheet" href="<?php echo base_url();?>assets/bower_components/font-awesome/css/font-awesome.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="<?php echo base_url();?>assets/bower_components/Ionicons/css/ionicons.min.css">
+
   <!-- fullCalendar -->
-  <link rel="stylesheet" href="<?php echo base_url();?>assets/bower_components/fullcalendar/dist/fullcalendar.min.css">
-  <link rel="stylesheet" href="<?php echo base_url();?>assets/bower_components/fullcalendar/dist/fullcalendar.print.min.css" media="print">
+  <link href='<?php echo base_url();?>assets/zed/css/fullcalendar.css' rel='stylesheet' />
+ 
   <!-- colorpicker -->
   <link rel="stylesheet" href="<?php echo base_url();?>assets/bower_components/bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css"  />
   <!-- bootstrap datepicker -->
@@ -27,6 +28,23 @@
   <!-- Select2 -->
   <link rel="stylesheet" href="<?php echo base_url();?>assets/bower_components/select2/dist/css/select2.min.css">
   <style>
+  .event-tooltip {
+    width:150px;
+    background: rgba(0, 0, 0, 0.85);
+    color:#FFF;
+    padding:10px;
+    position:absolute;
+    z-index:10001;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 11px;
+ }
+.modal-header{
+      background-color: #3A87AD;
+      color: #fff;
+  }
   .select2-close-mask{
     z-index: 9998;
 }

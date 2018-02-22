@@ -13,12 +13,20 @@ class M_jadwal extends CI_Model {
 
 	}
 
+	Public function getEventsAllDay()
+	{
+
+	$sql = "SELECT * FROM tb_jadwal WHERE tb_jadwal.start ORDER BY tb_jadwal.start ASC";
+	return $this->db->query($sql)->result();
+
+	}
+
 /*Create new events */
 
 	Public function addEvent()
 	{
 
-	$sql = "INSERT INTO tb_jadwal (title,tb_jadwal.start,tb_jadwal.end,description, color) VALUES (?,?,?,?,?)";
+	$sql = "INSERT INTO tb_jadwal (title,tb_jadwal.start,tb_jadwal.end, description, color) VALUES (?,?,?,?,?)";
 	$this->db->query($sql, array($_POST['title'], $_POST['start'],$_POST['end'], $_POST['description'], $_POST['color']));
 		return ($this->db->affected_rows()!=1)?false:true;
 	}

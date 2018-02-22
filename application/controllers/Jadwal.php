@@ -38,7 +38,6 @@ class Jadwal extends CI_Controller {
 			$this->load->view('template/header',$d_header);
 			$this->load->view('template/leftside');
 			$this->load->view('jadwal/index');
-			$this->load->view('template/footer_js');
 			$this->load->view('jadwal/ajax_scripts');
 			$this->load->view('template/footer');
 		}
