@@ -47,8 +47,6 @@ $.widget.bridge('uibutton', $.ui.button);
 
 <!-- end of scripts -->
 
-
-<!-- fullcalendar -->
 <script>
 
 $(document).ready(function(){
@@ -76,14 +74,7 @@ $(document).ready(function(){
         editable: false // Make the
       });
 
-    $('#drop-remove').change(function() {
-        if(this.checked) {
-           window.location.href= enable_edit
-          }
-        else {
-           window.location.href=disable_edit
-         } //else
-     }); //drop-remove function
+   
 
 }); //main function
 

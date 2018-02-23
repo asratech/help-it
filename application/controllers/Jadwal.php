@@ -20,7 +20,7 @@ class Jadwal extends CI_Controller {
 
 
 		/*Home page Calendar view  */
-		Public function index()
+	function index()
 		{
 			$data = array(
 				//'pppk' => $this->m->Getpppk('order by no desc')->result_array(),
@@ -41,6 +41,28 @@ class Jadwal extends CI_Controller {
 			$this->load->view('jadwal/ajax_scripts');
 			$this->load->view('template/footer');
 		}
+
+		function edit()
+			{
+				$data = array(
+					//'pppk' => $this->m->Getpppk('order by no desc')->result_array(),
+					'd_permintaan' => $this->mp->ambilDataPermintaan() //buat ambil join persen dari tb_identifikasi
+				);
+
+				$d_header['d_permintaan'] = $this->mp->ambilDataPermintaanbyStatus('waiting');
+				$d_header['d_progress'] = $this->mp->ambilDataPermintaanbyStatusJoin('on progress');
+
+				$d_header['total_waiting'] = $this->mp->hitungDataPermintaanbyStatus('waiting');
+				$d_header['total_progress'] = $this->mp->hitungDataPermintaanbyStatus('on progress');
+				$d_header['total_finished'] = $this->mp->hitungDataPermintaanbyStatus('finished');
+				$d_header['total_pekerjaan'] = $this->mp->hitungTotalDataPermintaan();
+
+				$this->load->view('template/header',$d_header);
+				$this->load->view('template/leftside');
+				$this->load->view('jadwal/index');
+				$this->load->view('jadwal/ajax_scripts_enable_edit');
+				$this->load->view('template/footer');
+			}
 
 		/*Get all Events */
 

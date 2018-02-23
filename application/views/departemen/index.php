@@ -15,9 +15,9 @@
     <div class="row">
       <div class="col-md-8 col-md-offset-2">
         <div class="box">
-          <div class="box-header with-border">
+          <!--div class="box-header with-border">
             <h3 class="box-title"></h3>
-          </div>
+          </div-->
           <div class="box-body">
                 <!--table class="table table-hover" id="dataTable"-->
                 <table id="dataTable1" class="table table-bordered table-striped">
@@ -38,7 +38,7 @@
                       <td><?php echo $d->nama_departemen; ?></td>
                       <td>
                         <nobr>
-                          <a onclick="ubah_departemen(<?php echo $d->id_departemen; ?>)" class="btn btn-xs btn-warning" rel="tooltip" data-tooltip="true" title="" data-original-title="Ubah"><i class="fa fa-pencil"></i></a>&nbsp;                          
+                          <a onclick="ubah_departemen(<?php echo $d->id_departemen; ?>)" class="btn btn-xs btn-warning" rel="tooltip" data-tooltip="true" title="" data-original-title="Ubah"><i class="fa fa-pencil"></i></a>&nbsp;
                           <a class="btn btn-danger btn-xs hapus-data" href="#" data-url="<?php echo base_url() . 'departemen/hapus/' . $d->id_departemen ?>"  rel="tooltip" title="Hapus"><i class="fa fa-trash-o "></i></a>
                        </nobr>
                       </td>

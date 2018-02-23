@@ -20,9 +20,18 @@
             <!-- the events -->
             <div id="external-events">
               <div class='external-event' style="background-color:#091B37; border-color:#091B37; color:rgb(255,255,255);" data-color="#091B37">Off</div>
-              <div class='external-event' style="background-color:#dd4b39; border-color:#dd4b39; color:rgb(255,255,255);" data-color="#dd4b39">PH/Cuti</div>
+              <div class='external-event' style="background-color:#2F9550; border-color:#2F9550; color:rgb(255,255,255);" data-color="#2F9550">PH/Cuti</div>
               <div class='external-event' style="background-color:#45aad1; border-color:#45aad1; color:rgb(255,255,255);" data-color="#45aad1">Event</div>
+              <div class='external-event' style="background-color:#dd4b39; border-color:#dd4b39; color:rgb(255,255,255);" data-color="#dd4b39">Libur Nasional</div>
              </div>
+          </div>
+          <div class="box-footer">
+            <div class="checkbox">
+              <label for="drop-remove">
+                <input type="checkbox" id="drop-remove">
+                Enable Edit
+              </label>
+            </div>
           </div>
           <!-- /.box-body -->
         </div>
@@ -49,7 +58,7 @@
 <div class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header">                
+            <div class="modal-header">
                 <h4 class="modal-title"></h4>
             </div>
             <div class="modal-body">
@@ -70,16 +79,29 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-md-4 control-label" for="color">Warna</label>
+                        <label class="col-md-4 control-label" for="color">Pilih Warna</label>
                         <div class="col-md-4">
-                            <input id="color" name="color" type="text" class="form-control input-md" readonly="readonly" />
-                            <span class="help-block">Klik untuk memilih warna</span>
+                          <input id="color" name="color" style="background:#00c0ef;color:#fff;" type="text" class="form-control input-md" readonly="readonly" />
+                          <!--span class="help-block">Klik untuk memilih warna</span-->
+                          <ul class="fc-color-picker" id="color-chooser">
+                            <li><a class="text-aqua" href="#"><i class="fa fa-square"></i></a></li>
+                            <li><a class="text-blue" href="#"><i class="fa fa-square"></i></a></li>
+                            <li><a class="text-light-blue" href="#"><i class="fa fa-square"></i></a></li>
+                            <li><a class="text-yellow" href="#"><i class="fa fa-square"></i></a></li>
+                            <li><a class="text-green" href="#"><i class="fa fa-square"></i></a></li>
+                            <li><a class="text-red" href="#"><i class="fa fa-square"></i></a></li>
+                            <li><a class="text-purple" href="#"><i class="fa fa-square"></i></a></li>
+                            <li><a class="text-fuchsia" href="#"><i class="fa fa-square"></i></a></li>
+                            <li><a class="text-muted" href="#"><i class="fa fa-square"></i></a></li>
+                            <li><a class="text-navy" href="#"><i class="fa fa-square"></i></a></li>
+                          </ul>
+
                         </div>
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
             </div>
         </div>
     </div>

@@ -90,7 +90,7 @@
     <!-- Main row -->
     <div class="row">
       <div class="col-md-12">
-        <div class="box">
+        <div class="box box-primary">
           <div class="box-header with-border">
             <h3 class="box-title">Data Permintaan Pekerjaan</h3>
             <div class="box-tools pull-right">
