@@ -67,7 +67,8 @@ $.widget.bridge('uibutton', $.ui.button);
   }
 
   $('.select2').select2({width: '100%', dropdownParent: $('#modalForm')});
-    $('#optDepartemen').select2({placeholder: "Pilh Departemen...", width: '100%'});
+  $('#optDepartemen').select2({placeholder: "Pilh Departemen...", width: '100%'});
+  $('#optDepartemen2').select2({placeholder: "Pilh Departemen...", width: '100%'});
   $('#optLokasi').select2({placeholder: "Pilh Lokasi...", width: '100%'});
   $('#optPersentase').select2({width: '100%'});
   $('#optTipe').select2({placeholder: "Pilh Tipe...", width: '100%'});

@@ -22,8 +22,18 @@
             </a>
         </li>
         <li>
+            <a href="<?echo base_url() .'informasi';?>"><i class="fa fa-info"></i>
+              <span>Informasi Terbaru</span>
+            </a>
+        </li>
+        <li>
             <a href="<?echo base_url() .'identifikasi';?>"><i class="fa fa-wrench"></i>
               <span>Identifikasi Pekerjaan</span>
+            </a>
+        </li>
+        <li>
+            <a href="<?echo base_url() .'refill';?>"><i class="fa fa-tint"></i>
+              <span>Refill Tinta Printer</span>
             </a>
         </li>
         <li>

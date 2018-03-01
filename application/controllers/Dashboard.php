@@ -7,6 +7,8 @@ class Dashboard extends CI_Controller {
 		parent::__construct();
     $this->load->model('M_permintaan','mp'); //load model, simpan ke m
 		$this->load->model('M_identifikasi','md'); //load model, simpan ke m
+		$this->load->model('M_refill','mr');
+		$this->load->helper('date');
 		$this->_cek_login();
 	}
 
@@ -21,7 +23,8 @@ class Dashboard extends CI_Controller {
 	{
 		$data = array(
 			//'pppk' => $this->m->Getpppk('order by no desc')->result_array(),
-			'd_permintaan' => $this->mp->ambilDataPermintaan() //buat ambil join persen dari tb_identifikasi
+			'd_permintaan' => $this->mp->ambilDataPermintaan(), //buat ambil join persen dari tb_identifikasi
+			'd_refill' => $this->mr->ambilDataRefill()
 		);
 
 		$d_header['d_permintaan'] = $this->mp->ambilDataPermintaanbyStatus('waiting');
@@ -35,7 +38,7 @@ class Dashboard extends CI_Controller {
 		$this->load->view('template/header',$d_header);
 		$this->load->view('template/leftside');
 		$this->load->view('dashboard/index', $data);
-		$this->load->view('template/footer_js');
+		$this->load->view('dashboard/ajax_scripts');
 		$this->load->view('template/footer');
 	}
 
@@ -89,4 +92,5 @@ class Dashboard extends CI_Controller {
 		$this->load->view('template/footer_js');
 		$this->load->view('template/footer');
 	}
+
 }
